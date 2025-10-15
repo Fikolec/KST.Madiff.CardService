@@ -1,0 +1,6 @@
+@KST.Madiff.CardService.Api_HostAddress = https://localhost:32769
+
+GET {{KST.Madiff.CardService.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
