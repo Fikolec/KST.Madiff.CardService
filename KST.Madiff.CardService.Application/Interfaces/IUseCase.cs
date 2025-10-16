@@ -1,5 +1,5 @@
 ﻿namespace KST.Madiff.CardService.Application.Interfaces;
 public interface IUseCase<in TRequest, TResponse>
 {
-    Task<TResponse> ExecuteAsync(TRequest request);
+    Task<TResponse> ExecuteAsync(TRequest request, CancellationToken cancellationToken);
 }

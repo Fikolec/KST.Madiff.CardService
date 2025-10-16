@@ -2,8 +2,17 @@
 using KST.Madiff.CardService.Domain.ValueObjects;
 
 namespace KST.Madiff.CardService.Domain.Policies;
+/// <summary>
+/// Defines a policy for determining the actions that are allowed on a given card.
+/// </summary>
 public class AllowedCardActionsPolicy
 {
+    /// <summary>
+    /// Retrieves the list of actions that are allowed for the specified card.
+    /// </summary>
+    /// <param name="card">The card for which to determine the allowed actions. Cannot be null.</param>
+    /// <returns>An enumerable collection of <see cref="CardAction"/> values representing the actions that are allowed for the
+    /// specified card. The collection will be empty if no actions are allowed.</returns>
     public IEnumerable<CardAction> GetAllowedCardActions(CardDetails card)
     {
         List<CardAction> allowedActions = [];
@@ -17,6 +26,12 @@ public class AllowedCardActionsPolicy
         return allowedActions;
     }
 
+    /// <summary>
+    /// Determines if a given <see cref="CardAction"/> is allowed for the specified card.
+    /// </summary>
+    /// <param name="card">Card details.</param>
+    /// <param name="action">Action to verify.</param>
+    /// <returns><c>true</c> if the action is allowed; otherwise, <c>false</c>.</returns>
     private bool IsActionAllowed(CardDetails card, CardAction action)
     {
         return action switch

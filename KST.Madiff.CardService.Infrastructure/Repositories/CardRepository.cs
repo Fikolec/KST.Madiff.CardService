@@ -6,8 +6,8 @@ internal class CardRepository(Services.CardService cardService) : ICardRepositor
 {
     private readonly Services.CardService _cardService = cardService;
 
-    public async Task<CardDetails?> GetCardDetailsAsync(string userId, string cardNumber)
+    public async Task<CardDetails?> GetCardDetailsAsync(string userId, string cardNumber, CancellationToken cancellationToken = default)
     {
-        return await _cardService.GetCardDetails(userId, cardNumber);
+        return await _cardService.GetCardDetails(userId, cardNumber, cancellationToken);
     }
 }

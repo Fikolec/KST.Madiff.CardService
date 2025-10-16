@@ -6,11 +6,11 @@ internal class CardService
 {
     private readonly Dictionary<string, Dictionary<string, CardDetails>> _userCards = CreateSampleUserCards();
 
-    public async Task<CardDetails?> GetCardDetails(string userId, string cardNumber)
+    public async Task<CardDetails?> GetCardDetails(string userId, string cardNumber, CancellationToken cancellationToken = default)
     {
         // At this point, we would typically make an HTTP call to an external service
         // to fetch the data. For this example we use generated sample data.
-        await Task.Delay(1000);
+        await Task.Delay(1000, cancellationToken);
         if (!_userCards.TryGetValue(userId, out var cards)
         || !cards.TryGetValue(cardNumber, out var cardDetails))
         {

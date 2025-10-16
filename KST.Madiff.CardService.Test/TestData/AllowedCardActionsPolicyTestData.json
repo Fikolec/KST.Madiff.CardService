@@ -1,0 +1,242 @@
+[
+  // ACTION1 - Active only
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION1",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Inactive",
+    "isPinSet": false,
+    "cardAction": "ACTION1",
+    "expectedResult": false
+  },
+  // ACTION2 - Inactive only
+  {
+    "cardType": "Debit",
+    "cardStatus": "Inactive",
+    "isPinSet": false,
+    "cardAction": "ACTION2",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Debit",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION2",
+    "expectedResult": false
+  },
+  // ACTION3, ACTION4, ACTION9 - always allowed
+  {
+    "cardType": "Credit",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION3",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Restricted",
+    "isPinSet": false,
+    "cardAction": "ACTION4",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Debit",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION9",
+    "expectedResult": true
+  },
+  // ACTION5 - Credit only
+  {
+    "cardType": "Credit",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION5",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Debit",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION5",
+    "expectedResult": false
+  },
+  // ACTION6 - depends on status and PIN
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Ordered",
+    "isPinSet": true,
+    "cardAction": "ACTION6",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Ordered",
+    "isPinSet": false,
+    "cardAction": "ACTION6",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": true,
+    "cardAction": "ACTION6",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION6",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": true,
+    "cardAction": "ACTION6",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION6",
+    "expectedResult": false
+  },
+  // ACTION7 - inverse to ACTION6
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION7",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": true,
+    "cardAction": "ACTION7",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Ordered",
+    "isPinSet": false,
+    "cardAction": "ACTION7",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": true,
+    "cardAction": "ACTION7",
+    "expectedResult": true
+  },
+  // ACTION8 - not allowed for Restricted, Expired, Closed
+  {
+    "cardType": "Credit",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION8",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Credit",
+    "cardStatus": "Restricted",
+    "isPinSet": false,
+    "cardAction": "ACTION8",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Credit",
+    "cardStatus": "Closed",
+    "isPinSet": false,
+    "cardAction": "ACTION8",
+    "expectedResult": false
+  },
+  // ACTION10, ACTION12, ACTION13 - not allowed for Restricted, Blocked, Expired, Closed
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION10",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Restricted",
+    "isPinSet": false,
+    "cardAction": "ACTION10",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION10",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION12",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Restricted",
+    "isPinSet": false,
+    "cardAction": "ACTION12",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION12",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION13",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Restricted",
+    "isPinSet": false,
+    "cardAction": "ACTION13",
+    "expectedResult": false
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Blocked",
+    "isPinSet": false,
+    "cardAction": "ACTION13",
+    "expectedResult": false
+  },
+  // ACTION11 - not allowed for Ordered, Restricted, Blocked, Expired, Closed
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Active",
+    "isPinSet": false,
+    "cardAction": "ACTION11",
+    "expectedResult": true
+  },
+  {
+    "cardType": "Prepaid",
+    "cardStatus": "Ordered",
+    "isPinSet": false,
+    "cardAction": "ACTION11",
+    "expectedResult": false
+  }
+]
