@@ -56,7 +56,7 @@ public class AllowedCardActionsPolicy
     }
 
     private static bool IsStatusIn(CardDetails card, params CardStatus[] statuses)
-    => statuses.Contains(card.CardStatus);
+        => statuses.Contains(card.CardStatus);
 
     private static bool IsStatusNotIn(CardDetails card, params CardStatus[] statuses)
         => !statuses.Contains(card.CardStatus);

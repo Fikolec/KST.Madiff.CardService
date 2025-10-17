@@ -26,7 +26,7 @@ public class CardActionsController(
     [HttpGet("{userId}/{cardNumber}")]
     [ProducesResponseType<GetAllowedCardActionsResponse>((int)HttpStatusCode.OK)]
     [ProducesResponseType<ValidationProblemDetails>((int)HttpStatusCode.BadRequest)]
-    [ProducesResponseType<NotFoundResult>((int)HttpStatusCode.NotFound)]
+    [ProducesResponseType<ProblemDetails>((int)HttpStatusCode.NotFound)]
     public async Task<IActionResult> GetAllowedCardActions(
         [FromRoute] string userId,
         [FromRoute] string cardNumber,

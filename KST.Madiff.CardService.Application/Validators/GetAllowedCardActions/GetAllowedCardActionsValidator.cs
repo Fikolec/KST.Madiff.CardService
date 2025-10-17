@@ -2,8 +2,8 @@
 using KST.Madiff.CardService.Application.UseCases.GetAllowedCardActions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace KST.Madiff.CardService.Application.Validators;
-internal class GetAllowedCardActionsValidator
+namespace KST.Madiff.CardService.Application.Validators.GetAllowedCardActions;
+internal class GetAllowedCardActionsValidator : IGetAllowedCardActionsValidator
 {
     public void Validate(GetAllowedCardActionsRequest request)
     {

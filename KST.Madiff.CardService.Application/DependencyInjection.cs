@@ -1,5 +1,5 @@
 ﻿using KST.Madiff.CardService.Application.UseCases.GetAllowedCardActions;
-using KST.Madiff.CardService.Application.Validators;
+using KST.Madiff.CardService.Application.Validators.GetAllowedCardActions;
 using KST.Madiff.CardService.Domain.Policies;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +9,7 @@ public static class DependencyInjection
     public static void AddApplicationServices(this IServiceCollection services)
     {
         //Validators
-        services.AddSingleton<GetAllowedCardActionsValidator>();
+        services.AddSingleton<IGetAllowedCardActionsValidator, GetAllowedCardActionsValidator>();
 
         //UseCases
         services.AddScoped<IGetAllowedCardActionsUseCase, GetAllowedCardActionsUseCase>();
