@@ -15,14 +15,12 @@ public class CardActionsController(
     private readonly IGetAllowedCardActionsUseCase _getAllowedCardActionsUseCase = getAllowedCardActionsUseCase;
 
     /// <summary>
-    /// API endpoint for retrieving allowed card actions for a specific user and card.
+    /// Retrieving allowed actions for a specific card.
     /// </summary>
-    /// <param name="userId">The unique identifier of the user associated with the card.</param>
-    /// <param name="cardNumber">The card number for which the allowed actions are being requested.</param>
-    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-    /// <returns>An <see cref="IActionResult"/> containing a <see cref="GetAllowedCardActionsResponse"/> with the allowed actions
-    /// if the request is successful, a <see cref="ValidationProblemDetails"/> if the request is invalid, or a <see
-    /// cref="NotFoundResult"/> if the card is not found.</returns>
+    /// <param name="userId">Id of the user assigned to a given card.</param>
+    /// <param name="cardNumber">Card number of the card whose actions you want to retrieve.</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns><see cref="IActionResult"/> containing <see cref="GetAllowedCardActionsResponse"/> if request is successfull, otherwise <see cref="ValidationProblemDetails"/> or <see cref="ProblemDetails"/>.</returns>
     [HttpGet("{userId}/{cardNumber}")]
     [ProducesResponseType<GetAllowedCardActionsResponse>((int)HttpStatusCode.OK)]
     [ProducesResponseType<ValidationProblemDetails>((int)HttpStatusCode.BadRequest)]

@@ -3,16 +3,15 @@ using KST.Madiff.CardService.Domain.ValueObjects;
 
 namespace KST.Madiff.CardService.Domain.Policies;
 /// <summary>
-/// Defines a policy for determining the actions that are allowed on a given card.
+/// Defines the business policy of allowed actions for a given card.
 /// </summary>
 public class AllowedCardActionsPolicy
 {
     /// <summary>
-    /// Retrieves the list of actions that are allowed for the specified card.
+    /// Gets a list of allowed actions for a given card.
     /// </summary>
-    /// <param name="card">The card for which to determine the allowed actions. Cannot be null.</param>
-    /// <returns>An enumerable collection of <see cref="CardAction"/> values representing the actions that are allowed for the
-    /// specified card. The collection will be empty if no actions are allowed.</returns>
+    /// <param name="card">The card whose permitted actions will be determined.</param>
+    /// <returns>An <see cref="IEnumerable{CardAction}"/> representing allowed actions.</returns>
     public IEnumerable<CardAction> GetAllowedCardActions(CardDetails card)
     {
         List<CardAction> allowedActions = [];
@@ -27,11 +26,11 @@ public class AllowedCardActionsPolicy
     }
 
     /// <summary>
-    /// Determines if a given <see cref="CardAction"/> is allowed for the specified card.
+    /// Defines whether the specified <see cref="CardAction"/> is allowed for the specified card.
     /// </summary>
-    /// <param name="card">Card details.</param>
-    /// <param name="action">Action to verify.</param>
-    /// <returns><c>true</c> if the action is allowed; otherwise, <c>false</c>.</returns>
+    /// <param name="card">Card for which the action will be checked.</param>
+    /// <param name="action">Action to check.</param>
+    /// <returns>True if action is allowed, false otherwise.</returns>
     private bool IsActionAllowed(CardDetails card, CardAction action)
     {
         return action switch

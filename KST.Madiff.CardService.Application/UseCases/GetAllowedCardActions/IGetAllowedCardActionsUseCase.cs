@@ -2,7 +2,7 @@
 
 namespace KST.Madiff.CardService.Application.UseCases.GetAllowedCardActions;
 /// <summary>
-/// Handles the process of determining the actions that are allowed for a specific card based on the provided request.
+/// Covers the process of determining allowed actions for a given card.
 /// </summary>
 public interface IGetAllowedCardActionsUseCase : IUseCase<GetAllowedCardActionsRequest, GetAllowedCardActionsResponse>
 {
